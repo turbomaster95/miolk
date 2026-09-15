@@ -1,16 +1,14 @@
 CC ?= gcc
 CFLAGS ?= -Wall -Wextra -O2 -I.
-LDFLAGS = 
 
 .PHONY: all clean
 
 all: libmiolk.a example
 
-# Build static library
 libmiolk.a: miolk.o
 	ar rcs libmiolk.a miolk.o
 
-miolk.o: miolk.c miolk.h lidrm.h
+miolk.o: miolk.c miolk.h
 	$(CC) $(CFLAGS) -c miolk.c -o miolk.o
 
 example: example.c libmiolk.a
